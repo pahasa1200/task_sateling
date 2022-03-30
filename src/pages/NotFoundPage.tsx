@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import ROUTES from "../routes";
+import {ROUTES} from "../const";
 
-const NotFoundPage: FC = () => (
+export const NotFoundPage: FC = () => (
   <Box
     component="div"
     sx={{ display: "grid", placeItems: "center center" }}
@@ -21,5 +21,3 @@ const NotFoundPage: FC = () => (
     </Button>
   </Box>
 );
-
-export default NotFoundPage;

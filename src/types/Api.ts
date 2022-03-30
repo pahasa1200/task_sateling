@@ -1,4 +1,4 @@
-export type IResponse = {
+interface IResponseApi {
     word: string;
     origin: string;
     phonetics: { [key: string]: string }[];
@@ -14,4 +14,8 @@ export type IResponse = {
             }[];
         }
     ];
+}
+
+export interface IResponse extends IResponseApi {
+    id: string
 }

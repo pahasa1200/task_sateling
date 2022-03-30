@@ -1,12 +1,12 @@
 import {BaseThunkType, InferActionsTypes} from "../..";
-import {API} from "../../../api/resultApi";
-import {IResponse} from "../../../types/Api";
-import TYPES from "./action-types";
+import {API} from "../../../api/";
+import {IResponse} from "../../../types/";
+import {TYPES} from "./action-types";
 
 let initialState = {
-    wordList: [] as IResponse[],
-    isFetching: false as boolean,
-    error: '' as string,
+    wordList: null as IResponse[] | null ,
+    isFetching: false,
+    error: '',
 };
 
 export const resultReducer = (
@@ -30,7 +30,7 @@ export const resultReducer = (
 }
 
 export const actions = {
-    setResultsSuccess: (wordList: IResponse[]) => ({
+    setResultsSuccess: (wordList: IResponse[] | null) => ({
         type: TYPES.SET_RESULTS_SUCCESS, payload: {wordList},
     }) as const,
 
@@ -60,5 +60,5 @@ export const searchWord = (word: string): BaseThunkType<ActionsTypes> => async (
 
 }
 
-export type InitialStateType = typeof initialState;
+type InitialStateType = typeof initialState;
 type ActionsTypes = InferActionsTypes<typeof actions>;
